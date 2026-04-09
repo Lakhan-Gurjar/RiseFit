@@ -11,7 +11,7 @@ const Card = styled.div`
   border-radius: 14px;
   box-shadow: 1px 6px 20px 0px ${({ theme }) => theme.primary + 15};
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   gap: 6px;
   @media (max-width: 600px) {
     padding: 12px 14px;
@@ -51,26 +51,26 @@ const Details = styled.div`
   gap: 6px;
 `;
 
-const Workoutcard = ({ workout }) => {
+const WorkoutCard = ({ workout }) => {
   return (
     <Card>
-      <Category>#Legs</Category>
-      <Name>Back Squat</Name>
+      <Category>#{workout?.category}</Category>
+      <Name>{workout?.workoutName}</Name>
       <Sets>
-        Count:5 sets X 10 reps
+        Count: {workout?.sets} sets X {workout?.reps} reps
       </Sets>
       <Flex>
         <Details>
           <FitnessCenterRounded sx={{ fontSize: "20px" }} />
-          30 kg
+          {workout?.weight} kg
         </Details>
         <Details>
           <TimelapseRounded sx={{ fontSize: "20px" }} />
-          30min
+          {workout?.duration} min
         </Details>
       </Flex>
     </Card>
   );
 };
 
-export default Workoutcard;
+export default WorkoutCard;
